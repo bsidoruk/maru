@@ -146,7 +146,7 @@ defmodule Maru.Helpers.Response do
     code = opts[:permanent] && 301 || 302
     conn
  |> Plug.Conn.put_resp_header("location", url)
- |> Plug.Conn.put_status(code)
+ |> Plug.Conn.send_resp(code, "")
  |> Plug.Conn.halt
   end
 
